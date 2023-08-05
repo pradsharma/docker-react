@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -t pradsharma/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run -e CI=true pradsharma/docker-react npm run test
